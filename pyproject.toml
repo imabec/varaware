@@ -1,0 +1,20 @@
+[project]
+name = "varaware"
+version = "0.1.0"
+description = "Variance-aware residual modeling for longitudinal dynamical systems"
+authors = [
+    {name = "Imani"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "statsmodels",
+    "matplotlib"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
