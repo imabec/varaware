@@ -36,14 +36,14 @@ This model separates biological time-series variability into:
 
 The decomposition is:
 
-\[
+$$
 y_t = \hat{x}_t + r_t
-\]
+$$
 
 where:
 
-- \(\hat{x}_t\) = fitted dominant temporal component
-- \(r_t\) = fluctuation component
+- $\(\hat{x}_t\)$ = fitted dominant temporal component
+- $\(r_t\)$ = fluctuation component
 
 The temporal component is currently estimated using a subject-level AR(1)-style approximation.
 
@@ -122,9 +122,9 @@ Performance may also degrade when:
 
 The current implementation uses a simple AR-style approximation:
 
-\[
+$$
 y_{t+1} = c + \phi y_t + \eta_t
-\]
+$$
 
 As a result:
 
@@ -145,15 +145,15 @@ This model extends the temporal decomposition by testing whether a user-specifie
 
 The decomposition is approximately:
 
-\[
+$$
 y_t = \hat{x}_t + \gamma z_t + \epsilon_t
-\]
+$$
 
 where:
 
-- \(\hat{x}_t\) = fitted temporal component
-- \(z_t\) = candidate structured feature
-- \(\epsilon_t\) = unexplained residual variability
+- $\(\hat{x}_t\)$ = fitted temporal component
+- $\(z_t\)$ = candidate structured feature
+- $\(\epsilon_t\)$ = unexplained residual variability
 
 ---
 
@@ -167,7 +167,7 @@ This model works best when:
 
 > does this candidate feature explain variability beyond the dominant temporal trajectory?
 
-Examples of useful \(z_t\) variables include:
+Examples of useful $\(z_t\)$ variables include:
 
 - entropy
 - oscillatory phase
@@ -206,7 +206,7 @@ This model is not intended to:
 
 The model only tests:
 
-> whether the supplied feature \(z_t\) explains variance.
+> whether the supplied feature $\(z_t\)$ explains variance.
 
 ---
 
@@ -214,7 +214,7 @@ The model only tests:
 
 This model may fail when:
 
-- \(z_t\) is highly correlated with temporal persistence,
+- $\(z_t\)$ is highly correlated with temporal persistence,
 - latent and structured processes overlap strongly,
 - structure is nonlinear,
 - structure changes over time,
@@ -236,7 +236,7 @@ Therefore:
 - low structured variance does NOT imply absence of biological structure,
 - it only implies that the supplied feature did not explain much variance.
 
-Different choices of \(z_t\) may produce substantially different decompositions.
+Different choices of $\(z_t\)$ may produce substantially different decompositions.
 
 ---
 
