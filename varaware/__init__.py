@@ -1,5 +1,5 @@
 from .models import VarianceAwareModel
-from .simulations import simulate_variance_aware, simulate_scsv
+from .simulations import simulate_variance_aware, SCSVSimulator
 from .models import StateCoupledSV
 from .calibration import (
     build_null_distribution,
@@ -12,7 +12,7 @@ from .calibration import (
 __all__ = [
     "VarianceAwareModel",
     "simulate_variance_aware",
-    "simulate_scsv",
+    "SCSVSimulator",
     "StateCoupledSV",
     "build_null_distribution",
     "empirical_null_p_value",
