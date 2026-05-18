@@ -275,6 +275,96 @@ Simulation recovery only demonstrates:
 > the model can recover structure under the assumed simulation conditions.
 
 ---
+# 4. Variance Aware Latent State Model
+
+The implemented latent dynamical system is:
+
+\[
+x_t = \mu + \phi(x_{t-1}-\mu) + w_t
+\]
+
+with
+
+\[
+w_t \sim \mathcal{N}(0,q_t)
+\]
+
+and state-coupled volatility
+
+\[
+\log q_t
+=
+\alpha + \gamma |x_{t-1}-\mu|.
+\]
+
+Observed data are generated according to
+
+\[
+y_t = x_t + v_t,
+\qquad
+v_t \sim \mathcal{N}(0,r).
+\]
+
+The parameter \(\gamma\) controls how strongly latent-state displacement influences latent process variability.
+
+---
+
+# Features
+
+## Latent simulation
+
+- state-coupled stochastic volatility simulation
+- configurable latent persistence
+- configurable observation noise
+- reproducible simulation pipelines
+
+## Particle filtering and smoothing
+
+- bootstrap particle filtering
+- systematic resampling
+- backward trajectory sampling
+- smoothed latent trajectory inference
+
+## Particle EM estimation
+
+- Monte Carlo EM inference
+- iterative recovery of:
+  - baseline volatility (\(\alpha\))
+  - state-coupling strength (\(\gamma\))
+- damped EM updates for improved stability
+
+## Empirical calibration framework
+
+The package includes a simulation-calibrated empirical null framework for assessing reliability of estimated coupling structure.
+
+Given a null distribution of coupling estimates generated under
+
+\[
+\gamma_{\text{true}} = 0,
+\]
+
+empirical null probabilities are computed as:
+
+\[
+p_{\mathrm{emp}}
+=
+\frac{
+1 +
+\sum
+\mathbf{1}
+(
+|\hat{\gamma}_{null}|
+\ge
+|\hat{\gamma}_{obs}|
+)
+}{
+N+1
+}.
+\]
+
+This provides a simulation-based reliability score quantifying how frequently the estimator produces coupling estimates at least as extreme as an observed estimate under null-coupling conditions.
+
+---
 
 # Overall Recommended Use
 
