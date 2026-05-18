@@ -39,7 +39,7 @@ jobs:
           from varaware.simulations import SCSVSimulator
           from varaware.models import StateCoupledSV
 
-          df = simulate(T=100)
+          df = simulate_scsv(T=100)
 
           y = df["y"].values
 
