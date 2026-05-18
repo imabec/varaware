@@ -32,13 +32,13 @@ jobs:
         run: |
           python -c "from varaware.models import StateCoupledSV"
           python -c "from varaware.simulations import SCSVSimulator"
-
+          python -c "from varaware.simulations import simulate_scsv"
       - name: Basic simulation test
         run: |
           python - <<EOF
           from varaware.simulations import SCSVSimulator
           from varaware.models import StateCoupledSV
-
+          from varaware.simulations import simulate_scsv
           df = simulate_scsv(T=100)
 
           y = df["y"].values
