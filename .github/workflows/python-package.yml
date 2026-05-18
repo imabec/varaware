@@ -36,8 +36,8 @@ jobs:
       - name: Basic simulation test
         run: |
           python - <<EOF
-          from varaware import simulate_scsv
-          from varaware import StateCoupledSV
+          from varaware.simulations import simulate_scsv
+          from varaware.models import StateCoupledSV
 
           df = simulate_scsv(T=100)
 
