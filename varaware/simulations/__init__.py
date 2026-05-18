@@ -1,3 +1,3 @@
-from .scsv import simulate_scsv
+from simulate_scvc import simulate_scsv
 
 __all__ = ["simulate_scsv"]
